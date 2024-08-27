@@ -23,7 +23,7 @@ const openWeatherApiKey = process.env.OPEN_WEATHER_API_KEY;
 const city = 'Kyiv';
 const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${openWeatherApiKey}&units=metric`;
 const trishaBot = () => {
-    winston_1.default.fn('trisha bot');
+    winston_1.default.fn('trisha bot', false);
     const bot = new grammy_1.Bot(trishaBotApiKey);
     bot.api.setMyCommands([
         { command: 'menu', description: 'Menu' },
