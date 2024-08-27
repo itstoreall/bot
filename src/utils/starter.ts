@@ -1,7 +1,7 @@
 import os from 'os';
 import mongoose from 'mongoose';
 import w from '../winston';
-// import trishaBot from '../bot/trisha';
+import trishaBot from '../bot/trisha';
 import * as gc from '../config/global';
 import * as gt from '../types/global';
 import * as gu from './global';
@@ -21,7 +21,7 @@ const dbCheck = (mongoose: any) => {
 
 const starter: gt.RunServer = async port => {
   w.fn('starter');
-  // trishaBot();
+  trishaBot();
   const dbName = dbCheck(mongoose).db;
   w.info(`  bot ${gu.isLocal() ? dev : prod}:${port} -> ${dbName} `);
 };
