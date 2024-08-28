@@ -51,10 +51,10 @@ const dbCheck = (mongoose) => {
 };
 // ------ Server:
 const starter = (port) => __awaiter(void 0, void 0, void 0, function* () {
-    winston_1.default.fn('starter');
-    (0, trisha_1.default)();
     const dbName = dbCheck(mongoose_1.default).db;
-    winston_1.default.info(`  bot ${gu.isLocal() ? dev : prod}:${port} -> ${dbName} `);
+    const starterMsg = `  bot ${gu.isLocal() ? dev : prod}:${port} -> ${dbName} `;
+    winston_1.default.info(starterMsg, true, true);
+    (0, trisha_1.default)();
 });
 exports.default = starter;
 //# sourceMappingURL=starter.js.map

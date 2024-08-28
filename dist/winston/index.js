@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const winston_1 = __importDefault(require("winston"));
+// ---
 const customLevels = {
     levels: {
         error: 0,
@@ -19,14 +20,11 @@ const customLevels = {
 winston_1.default.addColors(customLevels.colors);
 const transports = [
     new winston_1.default.transports.Console({
-        format: winston_1.default.format.combine(winston_1.default.format.colorize({ all: true }), winston_1.default.format.printf(({ level, message, newline }) => {
+        format: winston_1.default.format.combine(winston_1.default.format.colorize({ all: true }), winston_1.default.format.printf(({ level, message, isTop, isBottom }) => {
+            const setLine = (v) => (v ? '\n' : '');
             return level.includes('info') || level.includes('error')
-                ? newline
-                    ? `${message}\n`
-                    : `${message}`
-                : newline
-                    ? `${level} ${message}\n`
-                    : `${level} ${message}`;
+                ? `${setLine(isTop)}${message}${setLine(isBottom)}`
+                : `${setLine(isTop)}${level} ${message}${setLine(isBottom)}`;
         }))
     })
 ];
@@ -35,16 +33,16 @@ const logger = winston_1.default.createLogger({
     level: '*',
     transports: transports
 });
-const template = (level, text, newline) => logger.log({ level, message: text, newline });
+const template = (level, text, isTop, isBottom) => logger.log({ level, message: text, isTop, isBottom });
 exports.default = {
-    fn: (msg, n = true) => template('*', msg, n),
-    info: (msg, n = false) => template('info', msg, n),
-    err: (msg, n = false) => template('error', msg, n)
+    fn: (msg, it = false, ib = false) => template('*', msg, it, ib),
+    info: (msg, it = false, ib = false) => template('info', msg, it, ib),
+    err: (msg, it = false, ib = false) => template('error', msg, it, ib)
 };
 /* ------ how to use:
 
-w.fn('getActions', true);
-w.info('iiiiii', false);
+w.fn('getActions', false, true);
+w.info('iiiiii', true);
 w.err('eeeee');
 
 */

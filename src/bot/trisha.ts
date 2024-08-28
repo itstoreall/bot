@@ -21,7 +21,7 @@ interface WeatherResponse {
 }
 
 const trishaBot = () => {
-  w.fn('trisha bot', false);
+  w.fn('trisha bot');
 
   const bot = new Bot(trishaBotApiKey);
 

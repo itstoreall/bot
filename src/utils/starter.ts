@@ -20,10 +20,10 @@ const dbCheck = (mongoose: any) => {
 // ------ Server:
 
 const starter: gt.RunServer = async port => {
-  w.fn('starter');
-  trishaBot();
   const dbName = dbCheck(mongoose).db;
-  w.info(`  bot ${gu.isLocal() ? dev : prod}:${port} -> ${dbName} `);
+  const starterMsg = `  bot ${gu.isLocal() ? dev : prod}:${port} -> ${dbName} `;
+  w.info(starterMsg, true, true);
+  trishaBot();
 };
 
 export default starter;
