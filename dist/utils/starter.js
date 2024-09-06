@@ -38,7 +38,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const os_1 = __importDefault(require("os"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const winston_1 = __importDefault(require("../winston"));
-const trisha_1 = __importDefault(require("../bot/trisha"));
+// import trishaBot from '../bot/trisha'; // *
+const uni_1 = __importDefault(require("../bot/uni"));
 const gc = __importStar(require("../config/global"));
 const gu = __importStar(require("./global"));
 const { kaomoji, host } = gc.system;
@@ -54,7 +55,8 @@ const starter = (port) => __awaiter(void 0, void 0, void 0, function* () {
     const dbName = dbCheck(mongoose_1.default).db;
     const starterMsg = `  bot ${gu.isLocal() ? dev : prod}:${port} -> ${dbName} `;
     winston_1.default.info(starterMsg, true, true);
-    (0, trisha_1.default)();
+    (0, uni_1.default)();
+    // trishaBot();
 });
 exports.default = starter;
 //# sourceMappingURL=starter.js.map

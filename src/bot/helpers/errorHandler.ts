@@ -1,5 +1,5 @@
 import { BotError, Context, GrammyError, HttpError } from 'grammy';
-import w from '../winston';
+import w from '../../winston';
 
 const errorHandler = (e: BotError<Context>) => {
   const { ctx } = e;

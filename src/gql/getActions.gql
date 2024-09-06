@@ -1,0 +1,18 @@
+query {
+  getActions {
+    isUpdated
+    actions {
+      id
+      tokenId
+      token
+      action
+      average_price
+      current_price
+      prices
+      percent
+      status
+      updatedAt
+    }
+    time
+  }
+}

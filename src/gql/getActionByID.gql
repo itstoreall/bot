@@ -1,0 +1,12 @@
+query GetActionByID($id: ID!) {
+  getActionByID(id: $id) {
+    tokenId
+    token
+    action
+    average_price
+    current_price
+    prices
+    percent
+    status
+  }
+}

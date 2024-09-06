@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = __importDefault(require("axios"));
 const grammy_1 = require("grammy");
-const errorHandler_1 = __importDefault(require("./errorHandler"));
+const errorHandler_1 = __importDefault(require("./helpers/errorHandler"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const winston_1 = __importDefault(require("../winston"));
 dotenv_1.default.config();

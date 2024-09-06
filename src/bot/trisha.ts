@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Bot, Keyboard } from 'grammy';
-import errorHandler from './errorHandler';
+import errorHandler from './helpers/errorHandler';
 import dotenv from 'dotenv';
 import w from '../winston';
 

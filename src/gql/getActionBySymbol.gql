@@ -1,0 +1,12 @@
+query GetActionBySymbol($symbol: String!) {
+  getActionBySymbol(symbol: $symbol) {
+    tokenId
+    token
+    action
+    average_price
+    current_price
+    prices
+    percent
+    status
+  }
+}

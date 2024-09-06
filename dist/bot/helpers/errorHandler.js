@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const grammy_1 = require("grammy");
-const winston_1 = __importDefault(require("../winston"));
+const winston_1 = __importDefault(require("../../winston"));
 const errorHandler = (e) => {
     const { ctx } = e;
     winston_1.default.err(`Error in Bot: ${ctx.update.update_id}`);
