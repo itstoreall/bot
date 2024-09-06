@@ -53,7 +53,7 @@ const dbCheck = (mongoose) => {
 // ------ Server:
 const starter = (port) => __awaiter(void 0, void 0, void 0, function* () {
     const dbName = dbCheck(mongoose_1.default).db;
-    const starterMsg = `  bot ${gu.isLocal() ? dev : prod}:${port} -> ${dbName} `;
+    const starterMsg = `  uni bot ${gu.isLocal() ? dev : prod}:${port} -> ${dbName} `;
     winston_1.default.info(starterMsg, true, true);
     (0, uni_1.default)();
     // trishaBot();

@@ -22,8 +22,13 @@ const dbCheck = (mongoose: any) => {
 
 const starter: gt.RunServer = async port => {
   const dbName = dbCheck(mongoose).db;
-  const starterMsg = `  bot ${gu.isLocal() ? dev : prod}:${port} -> ${dbName} `;
+
+  const starterMsg = `  uni bot ${
+    gu.isLocal() ? dev : prod
+  }:${port} -> ${dbName} `;
+
   w.info(starterMsg, true, true);
+
   uniBot();
   // trishaBot();
 };
