@@ -1,8 +1,9 @@
 import { Bot } from 'grammy';
 import dotenv from 'dotenv';
-import errorHandler from './helpers/errorHandler';
-import * as api from '../api/spotActions';
 import w from '../winston';
+import * as api from '../api/spotActions';
+import errorHandler from './helpers/errorHandler';
+import userInfo from './helpers/userInfo';
 import start from './helpers/start';
 dotenv.config();
 
@@ -21,7 +22,8 @@ const uniBot = () => {
   );
 
   bot.api.setMyCommands([
-    { command: 'info', description: 'Info' },
+    { command: 'start', description: 'Start Bot' },
+    { command: 'info', description: 'User Info' },
     { command: 'get_all', description: 'Get all actions' },
     { command: 'get_by_id', description: 'Get action by id' },
     { command: 'get_by_sym', description: 'Get action by Symbol' }
@@ -39,15 +41,13 @@ const uniBot = () => {
 
   bot.command('start', async ctx => start(ctx));
 
+  bot.command('info', async ctx => userInfo(ctx));
+
   bot.command('get_all', async ctx => api.getActions(ctx));
 
   bot.command('get_by_id', async ctx => api.getActionByID(ctx));
 
   bot.command('get_by_sym', async ctx => api.getActionBySymbol(ctx));
-
-  /*
-  bot.command('info', async ctx => userInfo(ctx));
-  */
 
   /*
   bot.on('msg').filter(
