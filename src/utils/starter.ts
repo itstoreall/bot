@@ -2,6 +2,7 @@ import os from 'os';
 import mongoose from 'mongoose';
 import w from '../winston';
 // import trishaBot from '../bot/trisha'; // *
+import counter from '../cron/counter';
 import uniBot from '../bot/uni';
 import * as gc from '../config/global';
 import * as gt from '../types/global';
@@ -28,6 +29,8 @@ const starter: gt.RunServer = async port => {
   }:${port} -> ${dbName} `;
 
   w.info(starterMsg, true, true);
+
+  counter.start();
 
   uniBot();
   // trishaBot();
