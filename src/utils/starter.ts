@@ -30,7 +30,7 @@ const starter: gt.RunServer = async port => {
 
   counter.start();
 
-  // uniBot();
+  uniBot();
   // trishaBot();
 };
 

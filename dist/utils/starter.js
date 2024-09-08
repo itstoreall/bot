@@ -40,6 +40,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const winston_1 = __importDefault(require("../winston"));
 // import trishaBot from '../bot/trisha'; // *
 const counter_1 = __importDefault(require("../cron/counter"));
+const uni_1 = __importDefault(require("../bot/uni"));
 const gc = __importStar(require("../config/global"));
 const gu = __importStar(require("./global"));
 const { kaomoji, host } = gc.system;
@@ -56,7 +57,7 @@ const starter = (port) => __awaiter(void 0, void 0, void 0, function* () {
     const starterMsg = `  bot ${gu.isLocal() ? dev : prod}:${port} -> ${dbName} `;
     winston_1.default.info(starterMsg, true, true);
     counter_1.default.start();
-    // uniBot();
+    (0, uni_1.default)();
     // trishaBot();
 });
 exports.default = starter;
