@@ -40,7 +40,7 @@ exports.corsCheck = corsCheck;
 // ------ App (Express):
 const initApp = (args) => {
     return !(0, exports.corsCheck)(args.req.headers.origin)
-        ? args.res.status(403).send(`bot ${kaomoji} server`)
+        ? args.res.status(200).send(`bot ${kaomoji} server`)
         : args.next();
 };
 exports.initApp = initApp;

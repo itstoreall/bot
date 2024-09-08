@@ -18,6 +18,6 @@ export const corsCheck = (origin: string) =>
 
 export const initApp = (args: gt.ReqArgs) => {
   return !corsCheck(args.req.headers.origin!)
-    ? args.res.status(403).send(`bot ${kaomoji} server`)
+    ? args.res.status(200).send(`bot ${kaomoji} server`)
     : args.next();
 };
