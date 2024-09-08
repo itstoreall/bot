@@ -16,7 +16,7 @@ const incrementCount = () => {
 };
 
 const start = () => {
-  cron.schedule('*/10 * * * * *', incrementCount);
+  cron.schedule('*/60 * * * * *', incrementCount);
 };
 
 export default { start };

@@ -16,7 +16,7 @@ const incrementCount = () => {
     counter_1.default.set(key, count);
 };
 const start = () => {
-    node_cron_1.default.schedule('*/10 * * * * *', incrementCount);
+    node_cron_1.default.schedule('*/60 * * * * *', incrementCount);
 };
 exports.default = { start };
 //# sourceMappingURL=counter.js.map
