@@ -8,4 +8,12 @@ export type HttpServer = http.Server<
   typeof http.ServerResponse
 >;
 
+export type ExpressArgs = { req: Request; res: Response; next: NextFunction };
+
+export type Middleware = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => void;
+
 export type RunServer = (port: string) => void;
